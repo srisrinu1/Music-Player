@@ -97,7 +97,7 @@ body {
     top: 0;
     left: 20px;
     width: calc(100% - 40px);
-    /* opacity: 0; */
+    opacity: 0;
     transform: translateY(0%);
     padding: 10px 10px 10px 150px;
     transition: transform 0.3s ease-in opacity 0.3s ease-in;
