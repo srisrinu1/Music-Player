@@ -3,4 +3,7 @@
     box-sizing: border-box;
 }
 
-body {}
+body {
+    height: 100vh;
+    margin: 0;
+}
