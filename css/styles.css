@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 * {
     box-sizing: border-box;
 }
@@ -6,4 +6,21 @@
 body {
     height: 100vh;
     margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-image: linear-gradient(0deg, rgba(255, 255, 255), rgb(216, 241, 205));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.music-container {
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0px 10px 6px 0px rgb(138, 177, 121);
+    display: flex;
+    padding: 20px 30px;
+    position: relative;
+    margin: 100px 0;
+    z-index: 10;
 }
