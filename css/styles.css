@@ -27,7 +27,7 @@ body {
 
 .img-container {
     position: relative;
-    width: 85px;
+    width: 110px;
 }
 
 
@@ -45,7 +45,7 @@ body {
 
 .img-container img {
     width: inherit;
-    height: 85px;
+    height: 110px;
     border-radius: 55px;
     object-fit: cover;
     position: absolute;
@@ -87,7 +87,7 @@ body {
 
 .action-btn-big {
     color: #9CA3AF;
-    font-size: 25px;
+    font-size: 27px;
 }
 
 .music-info {

@@ -7,12 +7,12 @@ const progress = document.querySelector('.progress');
 const progressContainer = document.querySelector('.progress-container');
 const Title = document.querySelector('#title');
 const Cover = document.querySelector('#cover');
+
 // songs
 const songs = ["Gul", "Hututu", "Param Sundari", "Rihaayi De"];
 
 //keep track of song
 let songIndex = 0;
-// console.log(songIndex);
 
 //load song into DOM
 loadSong(songs[songIndex]);
@@ -22,11 +22,32 @@ function playSong() {
     // console.log(playBtn);
     playBtn.querySelector('i.fas').classList.remove("fa-play");
     playBtn.querySelector('i.fas').classList.add("fa-pause");
+    audio.play();
 }
+
 //Pause song
 function pauseSong() {
     musicContainer.classList.remove("play");
     playBtn.querySelector('i.fas').classList.add("fa-play");
+    audio.pause();
+}
+//Previous Song
+function PreviousSong() {
+    songIndex -= 1;
+    if (songIndex < 0) {
+        songIndex = songs.length - 1;
+    }
+    loadSong(songs[songIndex]);
+    playSong();
+}
+//Next Song
+function NextSong() {
+    songIndex += 1;
+    if (songIndex > songs.length - 1) {
+        songIndex = 0;
+    }
+    loadSong(songs[songIndex]);
+    playSong();
 }
 //Update song details
 function loadSong(song) {
@@ -36,10 +57,13 @@ function loadSong(song) {
 
 }
 playBtn.addEventListener("click", () => {
-    const isPlaying = musicContainer.classList.contains("play");
-    if (isPlaying) {
-        pauseSong();
-    } else {
-        playSong();
-    }
-})
+        const isPlaying = musicContainer.classList.contains("play");
+        if (isPlaying) {
+            pauseSong();
+        } else {
+            playSong();
+        }
+    })
+    //Change song 
+PrevBtn.addEventListener("click", PreviousSong);
+nextBtn.addEventListener("click", NextSong);
