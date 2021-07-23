@@ -3,6 +3,7 @@ const playBtn = document.querySelector('#play');
 const PrevBtn = document.querySelector('#prev');
 const nextBtn = document.querySelector('#next');
 const audio = document.querySelector('#audio');
+const autoBtn = document.querySelector('#autoplay');
 const progress = document.querySelector('.progress');
 const progressContainer = document.querySelector('.progress-container');
 const Title = document.querySelector('#title');
@@ -22,7 +23,19 @@ function playSong() {
     // console.log(playBtn);
     playBtn.querySelector('i.fas').classList.remove("fa-play");
     playBtn.querySelector('i.fas').classList.add("fa-pause");
+    audio.setAttribute("allow", "autoplay");
     audio.play();
+}
+
+
+
+//Update Duration
+function UpdateDuration(e) {
+    // const { duration, currentTime } = e.srcElement;
+    const { duration, currentTime } = e.srcElement;
+    const Progress = (currentTime / duration) * 100;
+    progress.style.width = `${Progress}% `;
+
 }
 
 //Pause song
@@ -49,6 +62,23 @@ function NextSong() {
     loadSong(songs[songIndex]);
     playSong();
 }
+//Auto play
+
+
+function GotoNextSong() {
+    songIndex += 1;
+    loadSong(songs[songIndex]);
+    playSong();
+}
+//Set ProgressContainer
+function setProgress(e) {
+    const width = progressContainer.clientWidth;
+    const clickX = e.offsetX;
+    const duration = audio.duration;
+    audio.currentTime = (clickX / width) * duration;
+
+
+}
 //Update song details
 function loadSong(song) {
     title.innerText = song;
@@ -64,6 +94,14 @@ playBtn.addEventListener("click", () => {
             playSong();
         }
     })
-    //Change song 
+    //Auto play 
+
+
 PrevBtn.addEventListener("click", PreviousSong);
 nextBtn.addEventListener("click", NextSong);
+audio.addEventListener("timeupdate", UpdateDuration);
+
+progressContainer.addEventListener("click", setProgress);
+autoBtn.addEventListener("click", () => {
+    audio.addEventListener("ended", GotoNextSong);
+})
