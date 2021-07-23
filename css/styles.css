@@ -27,7 +27,7 @@ body {
 
 .img-container {
     position: relative;
-    width: 85px;
+    width: 110px;
 }
 
 
@@ -45,7 +45,7 @@ body {
 
 .img-container img {
     width: inherit;
-    height: 85px;
+    height: 110px;
     border-radius: 55px;
     object-fit: cover;
     position: absolute;
@@ -85,9 +85,22 @@ body {
     margin: 0 20px;
 }
 
+.action-auto {
+    animation: Rotate 3s linear;
+}
+
+@keyframes Rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(-180deg);
+    }
+}
+
 .action-btn-big {
     color: #9CA3AF;
-    font-size: 25px;
+    font-size: 27px;
 }
 
 .music-info {
@@ -125,6 +138,6 @@ body {
     background: #6EE7B7;
     border-radius: 5px;
     height: 100%;
-    width: 50%;
+    width: 0%;
     transition: width 0.1s linear;
 }
