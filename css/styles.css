@@ -85,6 +85,19 @@ body {
     margin: 0 20px;
 }
 
+.action-auto {
+    animation: Rotate 3s linear;
+}
+
+@keyframes Rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(-180deg);
+    }
+}
+
 .action-btn-big {
     color: #9CA3AF;
     font-size: 27px;
